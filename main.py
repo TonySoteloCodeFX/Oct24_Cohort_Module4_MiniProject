@@ -1,38 +1,39 @@
 from art import welcome, goodbye
 from helpers import clr, hr
+import book_ops
+
+clr()
 
 def run_program():
     '''Runs the main program.'''
-    clr()
-    print(welcome)
-
-    run_operation = True
-    while run_operation:
+    run_main_menu = True
+    while run_main_menu:
         try:
+            print(welcome)
             print('''
-                Main Menu:
-                        1. Book Operations
-                        2. User Operations
-                        3. Author Operations
-                        4. Quit
+Main Menu:
+        1. Book Main Operations
+        2. User Main Operations
+        3. Author Main Operations
+        4. Quit
                 ''')
-            operation = int(input("Enter Number: "))
+            main_operation = int(input("Enter Number: "))
 
-            if operation == 1:
+            if main_operation == 1:
+                book_ops.book_menu()
+            elif main_operation == 2:
                 pass
-            elif operation == 2:
+            elif main_operation == 3:
                 pass
-            elif operation == 3:
-                pass
-            elif operation == 4:
+            elif main_operation == 4:
                 clr()
                 hr(50)
                 print(goodbye)
-                run_operation = False
+                run_main_menu = False
             else:
                 clr()
                 hr(50)
-                print(f"{operation} is not an option. Try again.")
+                print(f"{main_operation} is not an option. Try again.")
         except ValueError:
             clr()
             hr(50)
