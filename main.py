@@ -1,6 +1,6 @@
 from art import welcome, goodbye
 from helpers import clr, hr
-import book_ops
+import book_mod
 
 clr()
 
@@ -20,7 +20,7 @@ Main Menu:
             main_operation = int(input("Enter Number: "))
 
             if main_operation == 1:
-                book_ops.book_menu()
+                book_mod.book_menu()
             elif main_operation == 2:
                 pass
             elif main_operation == 3:
