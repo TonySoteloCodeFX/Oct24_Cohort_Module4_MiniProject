@@ -142,7 +142,6 @@ def search_book():
     else:
         print("Availability: Not Available")
 
-
 def book_menu():
     clr()
     hr(50)
@@ -183,4 +182,3 @@ Main Book Menu:
             clr()
             hr(50)
             print("Input must be a number between 1-6")
-
