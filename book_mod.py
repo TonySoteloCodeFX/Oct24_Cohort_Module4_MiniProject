@@ -96,7 +96,7 @@ def borrow_book():
             print("Thank you!")
             print(f"You have now borrowed: {book_to_borrow.get_title()}.")
             book_to_borrow.switch_availability()
-            user_mod.User.get_user_name().book_list.append(book_to_borrow)
+            borrowing_user.book_list.append(book_to_borrow)
         else:
             clr()
             hr(50)
@@ -110,7 +110,7 @@ def return_book():
     clr()
     hr(50)
 
-    user_name = input("Enter Your Name" )
+    user_name = input("Enter Your Name: " )
     returning_user = None
     for user in user_mod.User.users:
         if user.get_user_name() == user_name:

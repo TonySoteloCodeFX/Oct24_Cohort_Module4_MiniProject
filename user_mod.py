@@ -34,13 +34,16 @@ class User:
 def add_user():
     clr()
     hr(50)
-    name = input("Enter Name: ")
+    try:
+        name = input("Enter Name: ")
 
-    new_user = User(name)
-    clr()
-    hr(50)
-    print("The following user has been created.\n")
-    print(f"Library ID: {new_user.user_id}\nUser: {new_user.name}")
+        new_user = User(name)
+        clr()
+        hr(50)
+        print("The following user has been created.\n")
+        print(f"Library ID: {new_user.user_id}\nUser: {new_user.name}")
+    except ValueError:
+        print("Invalid Input. Try again.")
 
 def display_users():
     User.display_all_users()
@@ -60,10 +63,12 @@ def view_details():
         hr(50)
         print(f"User ID: {user_to_view.get_user_id()}")
         print(f"User Name: {user_to_view.get_user_name()}")
-        print("Books Borrowed: ")
+        clr()
+        hr(50)
         if user_to_view.book_list:
+            print("Books Borrowed: ")
             for book in user_to_view.book_list:
-                print(f"Title: {book.get_title()}")
+                print(f"Title: {book.get_title()}\n")
         else:
             print("No books borrowed.")
         hr(50)
