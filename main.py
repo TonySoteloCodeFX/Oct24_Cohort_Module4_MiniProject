@@ -1,6 +1,7 @@
 from art import welcome, goodbye
 from helpers import clr, hr
-import book_mod
+import book_mod 
+import user_mod
 
 clr()
 
@@ -22,7 +23,7 @@ Main Menu:
             if main_operation == 1:
                 book_mod.book_menu()
             elif main_operation == 2:
-                pass
+                user_mod.user_menu()
             elif main_operation == 3:
                 pass
             elif main_operation == 4:

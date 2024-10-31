@@ -1,5 +1,6 @@
 from helpers import clr, hr
 from art import main_book_menu
+import user_mod
 
 class Book:
     book_library = []
@@ -37,6 +38,7 @@ class Book:
     @classmethod
     def display_all_books(cls):
         clr()
+        hr(50)
         print("Books In Library")
         for book in cls.book_library:
             hr(50)
@@ -70,8 +72,17 @@ def display_books():
 def borrow_book():
     clr()
     hr(50)
+    user_name = input("Enter Your Name: ")
+    borrowing_user = None
+    for user in user_mod.User.users:
+        if user.get_user_name() == user_name:
+            borrowing_user = user
+            break
+    if not borrowing_user:
+        print("User not found.")
+        return
+    
     borrow_title = input("Enter Title: ")
-
     book_to_borrow = None
     for book in Book.book_library:
         if book.get_title() == borrow_title:
@@ -85,6 +96,7 @@ def borrow_book():
             print("Thank you!")
             print(f"You have now borrowed: {book_to_borrow.get_title()}.")
             book_to_borrow.switch_availability()
+            user_mod.User.get_user_name().book_list.append(book_to_borrow)
         else:
             clr()
             hr(50)
@@ -97,8 +109,18 @@ def borrow_book():
 def return_book():
     clr()
     hr(50)
-    return_title = input("Enter Title: ")
 
+    user_name = input("Enter Your Name" )
+    returning_user = None
+    for user in user_mod.User.users:
+        if user.get_user_name() == user_name:
+            returning_user = user
+            break
+    if not returning_user:
+        print("User not found.")
+        return
+    
+    return_title = input("Enter Title: ")
     book_to_return = None
     for book in Book.book_library:
         if book.get_title() == return_title:
@@ -112,6 +134,9 @@ def return_book():
             print("Thank you!")
             print(f"You have now returned: {book_to_return.get_title()}.")
             book_to_return.switch_availability()
+
+            if book_to_return in returning_user.book_list:
+                returning_user.book_list.remove(book_to_return)
         else:
             clr()
             hr(50)

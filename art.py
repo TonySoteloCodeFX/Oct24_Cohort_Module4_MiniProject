@@ -27,3 +27,12 @@ main_book_menu = '''
 ====================\\|//====================
                     `---`
 '''
+
+main_user_menu = '''
+     XX     
+    XXXX    
+    XXXX    
+     XX     
+ XXXXXXXXXX 
+XXXXXXXXXXXX
+'''
