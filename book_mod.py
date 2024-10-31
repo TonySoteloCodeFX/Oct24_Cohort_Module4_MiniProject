@@ -80,12 +80,48 @@ def borrow_book():
 
     if book_to_borrow:
         if book_to_borrow.get_availability() == True:
-            print(f"You've borrowed: {book_to_borrow.get_title()}.")
+            clr()
+            hr(50)
+            print("Thank you!")
+            print(f"You have now borrowed: {book_to_borrow.get_title()}.")
             book_to_borrow.switch_availability()
         else:
+            clr()
+            hr(50)
             print(f"Sorry, {borrow_title} is currently unavailable.")
     else:
+        clr()
+        hr(50)
         print(f"{borrow_title} not found in the library.")
+
+def return_book():
+    clr()
+    hr(50)
+    return_title = input("Enter Title: ")
+
+    book_to_return = None
+    for book in Book.book_library:
+        if book.get_title() == return_title:
+            book_to_return = book
+            break
+
+    if book_to_return:
+        if book_to_return.get_availability() == False:
+            clr()
+            hr(50)
+            print("Thank you!")
+            print(f"You have now returned: {book_to_return.get_title()}.")
+            book_to_return.switch_availability()
+        else:
+            clr()
+            hr(50)
+            print(f"Sorry, {return_title} was never borrowed.")
+    else:
+        clr()
+        hr(50)
+        print(f"{return_title} not found in the library.")
+
+
 
 def book_menu():
     clr()
@@ -110,7 +146,7 @@ Main Book Menu:
             elif book_operation == 2:
                 borrow_book()
             elif book_operation == 3:
-                pass
+                return_book()
             elif book_operation == 4:
                 pass
             elif book_operation == 5:
