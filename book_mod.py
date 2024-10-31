@@ -121,6 +121,26 @@ def return_book():
         hr(50)
         print(f"{return_title} not found in the library.")
 
+def search_book():
+    clr()
+    hr(50)
+    lookup_title = input("Enter Title: ")
+
+    book_to_lookup = None
+    for book in Book.book_library:
+        if book.get_title() == lookup_title:
+            book_to_lookup = book
+            break
+    clr()
+    hr(50)
+    print(f"Title: {book_to_lookup.get_title()}")
+    print(f"Author: {book_to_lookup.get_author()}")
+    print(f"Genre: {book_to_lookup.get_genre()}")
+    print(f"Publication Date: {book_to_lookup.get_publication_date()}")
+    if book_to_lookup.get_availability() == True:
+        print("Availability: Available Now")
+    else:
+        print("Availability: Not Available")
 
 
 def book_menu():
@@ -148,7 +168,7 @@ Main Book Menu:
             elif book_operation == 3:
                 return_book()
             elif book_operation == 4:
-                pass
+                search_book()
             elif book_operation == 5:
                 display_books()
             elif book_operation == 6:
