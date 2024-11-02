@@ -36,3 +36,14 @@ main_user_menu = '''
  XXXXXXXXXX 
 XXXXXXXXXXXX
 '''
+
+main_author_menu = '''
+       __..._   _...__
+  _..-"      `Y`      "-._
+  \ Once upon |           /
+  \\    an    |          //
+  \\\ Author..|         ///
+   \\\ _..---.|.---.._ ///
+    \\`_..---.Y.---.._`//
+
+'''

@@ -2,6 +2,7 @@ from art import welcome, goodbye
 from helpers import clr, hr
 import book_mod 
 import user_mod
+import author_mod
 
 clr()
 
@@ -25,7 +26,7 @@ Main Menu:
             elif main_operation == 2:
                 user_mod.user_menu()
             elif main_operation == 3:
-                pass
+                author_mod.author_menu()
             elif main_operation == 4:
                 clr()
                 hr(50)

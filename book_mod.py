@@ -1,6 +1,7 @@
 from helpers import clr, hr
 from art import main_book_menu
 import user_mod
+from author_mod import Author
 
 class Book:
     book_library = []
@@ -53,11 +54,22 @@ def add_book():
     hr(50)
     try:
         title = input("Enter Title: ")
-        author = input("Enter Author: ")
+        author_name = input("Enter Author: ")
+
+        author_data = None
+        for author in Author.authors:
+            if author.get_author_name() == author_name:
+                author_data = author
+                break
+
+        if not author_data:
+            biography = input("Enter Biography: ")
+            author_data = Author(author_name, biography)
+
         genre = input("Enter Genre: ")
         publication_date = input("Enter Publication Date: ")
 
-        new_book = Book(title, author, genre, publication_date)
+        new_book = Book(title, author_data, genre, publication_date)
         clr()
         hr(50)
         print(f'{new_book.title}: by {new_book.author},\nhas been added to your library.')

@@ -1,6 +1,5 @@
 from helpers import clr, hr
 from art import main_user_menu
-import book_mod
 
 class User:
     users = []
@@ -36,7 +35,6 @@ def add_user():
     hr(50)
     try:
         name = input("Enter Name: ")
-
         new_user = User(name)
         clr()
         hr(50)
@@ -63,7 +61,6 @@ def view_details():
         hr(50)
         print(f"User ID: {user_to_view.get_user_id()}")
         print(f"User Name: {user_to_view.get_user_name()}")
-        clr()
         hr(50)
         if user_to_view.book_list:
             print("Books Borrowed: ")
